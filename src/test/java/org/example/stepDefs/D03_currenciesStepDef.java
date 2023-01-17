@@ -17,8 +17,6 @@ import static org.example.stepDefs.Hooks.driver;
 
 public class D03_currenciesStepDef {
 
-    P03_homePage homePage = new P03_homePage();
-    String products;
     SoftAssert soft= new SoftAssert();
     @When("user change currency to euro")
     public void changeCurrency() {

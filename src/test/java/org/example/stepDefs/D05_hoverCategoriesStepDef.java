@@ -4,11 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.example.pages.P03_homePage;
-import org.junit.experimental.categories.Categories;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -59,9 +57,9 @@ public class D05_hoverCategoriesStepDef {
 
 
     }
-    @Then("Subcategory page open successfully and with same selectedsubcategory title")
+    @Then("Subcategory page open successfully and with same selected subcategory title")
     public void verifyTitle(){
-       title= homePage.subcategoryPageTittle().getText();
+       title= homePage.subcatePage().getText();
         soft.assertTrue(chosenSubCategoryText.contains(title));
        System.out.println(title);
     }

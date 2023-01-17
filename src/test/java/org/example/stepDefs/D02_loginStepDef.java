@@ -11,32 +11,43 @@ import org.testng.asserts.SoftAssert;
 public class D02_loginStepDef {
 
     String URL;
-    String errorMsg;
+    String errMsg;
     P02_login log = new P02_login();
     SoftAssert soft= new SoftAssert();
 
 @Given("user go to login page")
+
 public void userGoToLoginPage(){
 log.clickOnLogIn().click();
 }
+
+
 @When("user login with  \"(.*)\" and \"(.*)\"$")
+
     public void userLoginValid(String email,String password){
-    log.writeEmailAndPasssword(email, password);
+    log.writeEmAndPW(email, password);
 }
+
 @And("user press on login button")
+
     public void clickOnLogin(){
-    log.clickOnLogInBtn().click();
+    log.loginButton().click();
 }
+
 @Then("user login to the system successfully")
+
     public void loginToSystemSuccessfully(){
+
     URL = log.getURL();
+
     Assert.assertTrue(URL.contains("https://demo.nopcommerce.com/"));
 }
 @Then("user could not login to the system")
-    public void couldNotLoginToTheSytem(){
 
-        errorMsg = log.getErrorMsg().getText();
-    soft.assertTrue(errorMsg.contains("Login was unsuccessful"));
+    public void CouldntLog(){
+
+        errMsg = log.getErrorMsg().getText();
+    soft.assertTrue(errMsg.contains("Login was unsuccessful"));
 
     }
 

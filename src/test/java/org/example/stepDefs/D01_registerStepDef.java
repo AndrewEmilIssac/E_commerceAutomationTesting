@@ -5,7 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P01_register;
 import io.cucumber.java.en.Given;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class D01_registerStepDef {
@@ -17,50 +16,50 @@ public class D01_registerStepDef {
 
     @Given("user go to register page")
     public void goRegisterPage() {
-        reg.registerlink().click();
+        reg.RegLink().click();
     }
 
 
     @When("user select gender type")
     public void selectGenderType() {
-        reg.selectGender().click();
+        reg.selectGen().click();
     }
 
     @And("user enter first name\"Andrew\" and last name\"Emil\"")
     public void enterFirstAndLastName() {
-        reg.writeFirstAndLast("Andrew", "Emil");
+        reg.writeFtAndLt("Andrew", "Emil");
     }
 
     @And("user enter date of birth")
     public void enterDateOfBirth() {
 
-        reg.selectDateOfBirthday("24", "April", "1999");
+        reg.selectBirthdayDate("24", "April", "1999");
          reg.Page().click();
 
     }
 
     @And("user enter email \"test@example.com\" field")
     public void enterEmailField() {
-        reg.Email().click();
-        reg.writeEmail("test@example.com");
+        reg.EM().click();
+        reg.writeEm("test@example.com");
 
     }
 
     @And("user fills Password fields \"P@ssw0rd\" \"p@ssw0rd\"")
     public void enterPassword() {
-        reg.writePassword("P@ssw0rd", "P@ssw0rd");
+        reg.writePw("P@ssw0rd", "P@ssw0rd");
 
     }
 
     @And("user clicks on register button")
     public void clickonRegisterBtn() {
-        reg.RegisterBtn().click();
+        reg.RegButn().click();
     }
 
     @Then("success message is displayed")
     public void success_message_is_displayed() {
 
-        msg= reg.GetSuccessMsg().getText();
+        msg= reg.successMSG().getText();
         soft.assertTrue(msg.contains(comp));
 
     }

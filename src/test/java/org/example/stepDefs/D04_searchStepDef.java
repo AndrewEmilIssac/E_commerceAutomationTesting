@@ -18,9 +18,9 @@ import static org.example.stepDefs.Hooks.driver;
 
 public class D04_searchStepDef {
 
-    String currentURL;
+    String currURL;
     String searchText;
-    String SKU;
+
     SoftAssert soft= new SoftAssert();
     P03_homePage homePage = new P03_homePage();
 
@@ -28,19 +28,19 @@ public class D04_searchStepDef {
     public void searchOnProduct(String product) {
         searchText = homePage.writeProductNameOnSearchBox(product);
         homePage.searchBox().sendKeys(Keys.ENTER);
-        currentURL = homePage.getURL();
+        currURL = homePage.getURL();
     }
 
     @Then("Verify URL")
     public void verifyURL() {
-        Assert.assertTrue(currentURL.contains("https://demo.nopcommerce.com/search?q="));
+        Assert.assertTrue(currURL.contains("https://demo.nopcommerce.com/search?q="));
     }
 
-    @And("verify each result contains the search word")
+    @And("verify each result contains the search words")
     public void verifyEachResult() {
         List<String> products = new ArrayList<>();
         List<WebElement> items = driver.findElements(By.className("search-results"));
-        // String items;
+
         for (int i = 0; i < items.size(); i++) {
             products.add(items.get(i).getText());
 
@@ -52,13 +52,15 @@ public class D04_searchStepDef {
         @Given("user search with \"(.*)\"$")
         public void searchOnSKU (String SKU) {
             searchText = homePage.writeProductNameOnSearchBox(SKU);
-            homePage.searchBox().sendKeys(Keys.ENTER);currentURL = homePage.getURL();
+            homePage.searchBox().sendKeys(Keys.ENTER);
+            currURL = homePage.getURL();
+
         }
-        @When("user clicks on the product")
+        @When("user clicks open the product")
       public void clickOnTheProduct(){
-    homePage.productImage().click();
+    homePage.productImg().click();
         }
-        @Then("verify result contains the search word")
+        @Then("verify result contains the search words")
         public void verifyResultsContainSKU() {
 
             String description = homePage.productDesc().getText();

@@ -21,12 +21,12 @@ public class P02_login {
         return Hooks.driver.findElement(By.id("Password"));
 
     }
-    public void writeEmailAndPasssword(String email, String password){
+    public void writeEmAndPW(String email, String password){
         writeEmail().sendKeys(email);
         writePassword().sendKeys(password);
 
     }
-    public WebElement clickOnLogInBtn()
+    public WebElement loginButton()
     {
         return Hooks.driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div > div > div > div.page-body > div.customer-blocks > div.returning-wrapper.fieldset > form > div.buttons > button"));
 

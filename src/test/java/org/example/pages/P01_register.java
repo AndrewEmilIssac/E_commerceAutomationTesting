@@ -5,45 +5,44 @@ import org.example.stepDefs.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.Date;
-
 public class P01_register {
-    public WebElement registerlink()
+    public WebElement RegLink()
     {
         return Hooks.driver.findElement(By.cssSelector("a[class=\"ico-register\"]"));
 
     }
-    public WebElement selectGender()
+    public WebElement selectGen()
     {
         return Hooks.driver.findElement(By.className("male"));
 
     }
-    public WebElement FirstName()
+    public WebElement FtName()
     {
+
         return Hooks.driver.findElement(By.id("FirstName"));
 
     }
-    public WebElement LastName()
+    public WebElement LtName()
     {
         return Hooks.driver.findElement(By.id("LastName"));
 
     }
-    public WebElement DateOfBirthDay()
+    public WebElement DateBirthday()
     {
         return Hooks.driver.findElement(By.name("DateOfBirthDay"));
 
     }
-    public WebElement DateOfBirthMonth()
+    public WebElement DateBirthMonth()
     {
         return Hooks.driver.findElement(By.name("DateOfBirthMonth"));
 
     }
-    public WebElement DateOfBirthYear()
+    public WebElement DateBirthYear()
     {
         return Hooks.driver.findElement(By.name("DateOfBirthYear"));
 
     }
-    public WebElement Email()
+    public WebElement EM()
     {
         return Hooks.driver.findElement(By.name("Email"));
 
@@ -54,45 +53,45 @@ public class P01_register {
 
     }
 
-    public WebElement Password()
+    public WebElement PW()
     {
         return Hooks.driver.findElement(By.name("Password"));
 
     }
-    public WebElement PasswordConfirm()
+    public WebElement PwCon()
     {
         return Hooks.driver.findElement(By.name("ConfirmPassword"));
 
     }
 
 
-    public void writeFirstAndLast(String firstName,String LastName){
-        FirstName().sendKeys(firstName);
-        LastName().sendKeys(LastName);
+    public void writeFtAndLt(String firstName, String LastName){
+        FtName().sendKeys(firstName);
+        LtName().sendKeys(LastName);
     }
-    public void selectDateOfBirthday(String day,String month,String year){
-        DateOfBirthDay().sendKeys(day);
-        DateOfBirthMonth().sendKeys(month);
-        DateOfBirthYear().sendKeys(year);
+    public void selectBirthdayDate(String day, String month, String year){
+        DateBirthday().sendKeys(day);
+        DateBirthMonth().sendKeys(month);
+        DateBirthYear().sendKeys(year);
     }
-    public void writeEmail(String email){
+    public void writeEm(String email){
 
-        Email().sendKeys(email);
+        EM().sendKeys(email);
     }
 
-    public void writePassword(String password ,String confirmPassword){
+    public void writePw(String password , String confirmPassword){
 
-        Password().sendKeys(password);
-        PasswordConfirm().sendKeys(confirmPassword);
+        PW().sendKeys(password);
+        PwCon().sendKeys(confirmPassword);
 
 
     }
-    public WebElement RegisterBtn()
+    public WebElement RegButn()
     {
         return Hooks.driver.findElement(By.name("register-button"));
 
     }
-    public WebElement GetSuccessMsg()
+    public WebElement successMSG()
     {
         return Hooks.driver.findElement(By.className("result"));
 
