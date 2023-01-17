@@ -76,7 +76,7 @@ public class P03_homePage {
 
     public WebElement WishListButn() {
 
-        return driver.findElement(By.cssSelector("button[class=\"button-2 add-to-wishlist-button\""));
+        return driver.findElement(By.className("ico-wishlist"));
 
     }
 
